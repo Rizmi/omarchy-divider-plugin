@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.rizmi.divider",
+  "name": "Bar Divider",
+  "version": "1.0.0",
+  "author": "Omarchy Community",
+  "license": "MIT",
+  "description": "Visual separator line, dot, or pipe between status bar widgets.",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Bar Divider",
+    "description": "Visual divider between bar widgets.",
+    "category": "Layout",
+    "allowMultiple": true,
+    "defaultSection": "center",
+    "defaults": {
+      "style": "line",
+      "margin": 4
+    },
+    "schema": [
+      {
+        "key": "style",
+        "type": "enum",
+        "label": "Divider Style",
+        "options": ["line", "pipe", "dot"],
+        "defaultValue": "line"
+      },
+      {
+        "key": "margin",
+        "type": "integer",
+        "label": "Side Margin",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "defaultValue": 4
+      }
+    ]
+  }
+}
