@@ -14,6 +14,14 @@ Before installing the widget, ensure your system has:
 
 ---
 
+<p align="center">
+  <img width="348" height="75" alt="Bar Divider Preview 1" src="https://imglink.cc/cdn/rH0P2VlOTr.png" />
+  &nbsp;&nbsp;
+  <img width="348" height="75" alt="Bar Divider Preview 2" src="https://imglink.cc/cdn/OkDCzi5s92.png" />
+</p>
+
+---
+
 ## Installation
 
 ### Option 1: Using `omarchy plugin` (Recommended)
@@ -30,7 +38,7 @@ omarchy plugin add https://github.com/Rizmi/omarchy-divider-plugin.git --enable
      ~/.config/omarchy/plugins/io.github.rizmi.divider
    ```
 
-2. Validate and enable the plugin on your status bar:
+2. Validate and enable the plugin:
    ```bash
    omarchy plugin validate ~/.config/omarchy/plugins/io.github.rizmi.divider
    omarchy plugin enable io.github.rizmi.divider
@@ -48,17 +56,25 @@ omarchy restart shell
 
 ---
 
-## Configuration & Settings
+## Configuration & Usage
 
-### Enable in `~/.config/omarchy/shell.json`
+Add `io.github.rizmi.divider` anywhere in your bar layout (`left`, `center`, or `right`) in `~/.config/omarchy/shell.json`.
 
-Add `io.github.rizmi.divider` to your preferred bar layout section (`left`, `center`, or `right`):
+Because multiple instances are supported (`allowMultiple: true`), you can insert as many dividers as you want between widgets:
 
 ```json
 {
   "bar": {
     "layout": {
       "center": [
+        {
+          "id": "io.github.salemsayed.omaprayers"
+        },
+        {
+          "id": "io.github.rizmi.divider",
+          "style": "line",
+          "margin": 4
+        },
         {
           "id": "omarchy.clock"
         },
@@ -68,7 +84,7 @@ Add `io.github.rizmi.divider` to your preferred bar layout section (`left`, `cen
           "margin": 4
         },
         {
-          "id": "io.github.salemsayed.omaprayers"
+          "id": "poppy.next-event"
         }
       ]
     }
@@ -76,22 +92,22 @@ Add `io.github.rizmi.divider` to your preferred bar layout section (`left`, `cen
 }
 ```
 
-### Available Settings
+---
 
-| Key | Type | Default | Range / Options | Description |
+## Available Settings
+
+Each divider instance can have its own individual style and margin settings:
+
+| Key | Type | Default | Options / Range | Description |
 |---|---|---|---|---|
 | `style` | `enum` | `"line"` | `"line"`, `"pipe"`, `"dot"` | Visual divider style |
 | `margin` | `integer` | `4` | `0` to `30` | Side margin in pixels |
 
-#### Setting via CLI:
+### Styles
 
-```bash
-# Change divider style
-omarchy bar set io.github.rizmi.divider style dot
-
-# Change side margin
-omarchy bar set io.github.rizmi.divider margin 6
-```
+- **`line`** (default): Minimal vertical line segment with subtle opacity.
+- **`pipe`**: Classic vertical terminal pipe (`│`) separator.
+- **`dot`**: Small centered geometric dot separator.
 
 ---
 
