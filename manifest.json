@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "io.github.rizmi.divider",
   "name": "Bar Divider",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Omarchy Community",
   "license": "MIT",
   "description": "Visual separator line, dot, or pipe between status bar widgets.",

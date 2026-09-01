@@ -2,7 +2,7 @@
 
 A lightweight, customizable visual separator widget for the [Omarchy](https://omarchy.org/) status bar.
 
-Allows you to place subtle separator lines, vertical pipes, or centered dots between status bar widgets to create clean, organized layouts.
+Allows you to place subtle separator lines, terminal-style pipes, or centered dots between status bar widgets to create clean, organized layouts. Dividers automatically follow the bar orientation, so they stay perpendicular to the bar whether it sits on the top, bottom, left, or right.
 
 ---
 
@@ -14,11 +14,24 @@ Before installing the widget, ensure your system has:
 
 ---
 
-<p align="center">
-  <img width="348" height="75" alt="Bar Divider Preview 1" src="https://imglink.cc/cdn/rH0P2VlOTr.png" />
-  &nbsp;&nbsp;
-  <img width="348" height="75" alt="Bar Divider Preview 2" src="https://imglink.cc/cdn/OkDCzi5s92.png" />
-</p>
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" valign="middle">
+        <img width="71" height="300" alt="Line dividers on a vertical bar" src="https://imglink.cc/cdn/PCQzDukpYD.png" />
+      </td>
+      <td align="center" valign="middle">
+        <img width="57" height="300" alt="Dot dividers on a vertical bar" src="https://imglink.cc/cdn/RvRooPcFwr.png" />
+      </td>
+      <td align="center" valign="middle">
+        <img width="348" height="75" alt="Dividers on a horizontal bar" src="https://imglink.cc/cdn/rH0P2VlOTr.png" />
+        <br />
+        <br />
+        <img width="348" height="75" alt="Dividers on a horizontal bar in a different theme" src="https://imglink.cc/cdn/OkDCzi5s92.png" />
+      </td>
+    </tr>
+  </table>
+</div>
 
 ---
 
@@ -60,7 +73,9 @@ omarchy restart shell
 
 Add `io.github.rizmi.divider` anywhere in your bar layout (`left`, `center`, or `right`) in `~/.config/omarchy/shell.json`.
 
-Because multiple instances are supported (`allowMultiple: true`), you can insert as many dividers as you want between widgets:
+Because multiple instances are supported (`allowMultiple: true`), you can insert as many dividers as you want between widgets.
+
+`margin` is applied along the bar axis — left and right of the divider on a top/bottom bar, above and below it on a left/right bar:
 
 ```json
 {
@@ -101,13 +116,15 @@ Each divider instance can have its own individual style and margin settings:
 | Key | Type | Default | Options / Range | Description |
 |---|---|---|---|---|
 | `style` | `enum` | `"line"` | `"line"`, `"pipe"`, `"dot"` | Visual divider style |
-| `margin` | `integer` | `4` | `0` to `30` | Side margin in pixels |
+| `margin` | `integer` | `4` | `0` to `30` | Margin along the bar axis, in pixels |
 
 ### Styles
 
-- **`line`** (default): Minimal vertical line segment with subtle opacity.
-- **`pipe`**: Classic vertical terminal pipe (`│`) separator.
-- **`dot`**: Small centered geometric dot separator.
+Dividers follow the bar orientation: on a top/bottom bar they are drawn vertically, and on a left/right bar they are drawn horizontally.
+
+- **`line`** (default): Minimal rule drawn across the bar, with subtle opacity.
+- **`pipe`**: Classic terminal pipe separator (`│`), rotated 90° on a left/right bar.
+- **`dot`**: Small centered geometric dot separator (identical in every bar position).
 
 ---
 
