@@ -14,11 +14,24 @@ Before installing the widget, ensure your system has:
 
 ---
 
-<p align="center">
-  <img width="348" height="75" alt="Bar Divider Preview 1" src="https://imglink.cc/cdn/rH0P2VlOTr.png" />
-  &nbsp;&nbsp;
-  <img width="348" height="75" alt="Bar Divider Preview 2" src="https://imglink.cc/cdn/OkDCzi5s92.png" />
-</p>
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" valign="middle">
+        <img width="71" height="300" alt="Line dividers on a vertical bar" src="https://imglink.cc/cdn/PCQzDukpYD.png" />
+      </td>
+      <td align="center" valign="middle">
+        <img width="57" height="300" alt="Dot dividers on a vertical bar" src="https://imglink.cc/cdn/RvRooPcFwr.png" />
+      </td>
+      <td align="center" valign="middle">
+        <img width="348" height="75" alt="Dividers on a horizontal bar" src="https://imglink.cc/cdn/rH0P2VlOTr.png" />
+        <br />
+        <br />
+        <img width="348" height="75" alt="Dividers on a horizontal bar in a different theme" src="https://imglink.cc/cdn/OkDCzi5s92.png" />
+      </td>
+    </tr>
+  </table>
+</div>
 
 ---
 
