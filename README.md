@@ -2,7 +2,7 @@
 
 A lightweight, customizable visual separator widget for the [Omarchy](https://omarchy.org/) status bar.
 
-Allows you to place subtle separator lines, vertical pipes, or centered dots between status bar widgets to create clean, organized layouts.
+Allows you to place subtle separator lines, terminal-style pipes, or centered dots between status bar widgets to create clean, organized layouts. Dividers automatically follow the bar orientation, so they stay perpendicular to the bar whether it sits on the top, bottom, left, or right.
 
 ---
 
@@ -60,7 +60,9 @@ omarchy restart shell
 
 Add `io.github.rizmi.divider` anywhere in your bar layout (`left`, `center`, or `right`) in `~/.config/omarchy/shell.json`.
 
-Because multiple instances are supported (`allowMultiple: true`), you can insert as many dividers as you want between widgets:
+Because multiple instances are supported (`allowMultiple: true`), you can insert as many dividers as you want between widgets.
+
+`margin` is applied along the bar axis — left and right of the divider on a top/bottom bar, above and below it on a left/right bar:
 
 ```json
 {
@@ -101,13 +103,15 @@ Each divider instance can have its own individual style and margin settings:
 | Key | Type | Default | Options / Range | Description |
 |---|---|---|---|---|
 | `style` | `enum` | `"line"` | `"line"`, `"pipe"`, `"dot"` | Visual divider style |
-| `margin` | `integer` | `4` | `0` to `30` | Side margin in pixels |
+| `margin` | `integer` | `4` | `0` to `30` | Margin along the bar axis, in pixels |
 
 ### Styles
 
-- **`line`** (default): Minimal vertical line segment with subtle opacity.
-- **`pipe`**: Classic vertical terminal pipe (`│`) separator.
-- **`dot`**: Small centered geometric dot separator.
+Dividers follow the bar orientation: on a top/bottom bar they are drawn vertically, and on a left/right bar they are drawn horizontally.
+
+- **`line`** (default): Minimal rule drawn across the bar, with subtle opacity.
+- **`pipe`**: Classic terminal pipe separator (`│`), rotated 90° on a left/right bar.
+- **`dot`**: Small centered geometric dot separator (identical in every bar position).
 
 ---
 

@@ -25,14 +25,22 @@ BarWidget {
   readonly property string style: String(setting("style", "line"))
   readonly property int sideMargin: intSetting("margin", 4, 0, 30)
 
-  implicitWidth: lineItem.width + (sideMargin * 2)
-  implicitHeight: root.barSize
+  implicitWidth: root.vertical ? root.barSize : lineItem.width + (sideMargin * 2)
+  implicitHeight: root.vertical ? lineItem.height + (sideMargin * 2) : root.barSize
 
   Item {
     id: lineItem
     anchors.centerIn: parent
-    width: root.style === "pipe" ? textPipe.implicitWidth : (root.style === "dot" ? 4 : 1)
-    height: root.style === "dot" ? 4 : Style.space(14)
+    width: root.style === "pipe"
+        ? (root.vertical ? textPipe.implicitHeight : textPipe.implicitWidth)
+        : root.style === "dot"
+            ? 4
+            : (root.vertical ? Style.space(14) : 1)
+    height: root.style === "pipe"
+        ? (root.vertical ? textPipe.implicitWidth : textPipe.implicitHeight)
+        : root.style === "dot"
+            ? 4
+            : (root.vertical ? 1 : Style.space(14))
 
     Rectangle {
       visible: root.style === "line"
@@ -55,6 +63,7 @@ BarWidget {
       visible: root.style === "pipe"
       anchors.centerIn: parent
       text: "│"
+      rotation: root.vertical ? 90 : 0
       color: root.dividerColor
       opacity: 0.3
       font.family: root.bar ? root.bar.fontFamily : Style.font.family
